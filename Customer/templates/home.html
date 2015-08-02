@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{%block greeting%}
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 jumbotron">
+		<div class="text-center" >
+			<h2>Welcome To Customer Feedback</h2>
+			<p>
+				Through this site you can give feedback about a particula
+				company which is registered with our site.
+				This site enables the voice of Customers to be heard and 
+				presented to the company directly
+			</p>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
+
+{% block table %}
+<div class="row">
+	<div class = "col-md-8 col-md-offset-2">
+		<table class="table table-hover table-responsive">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Logo</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for company in companies %}
+				<tr>
+					<td><a href="{% url 'feedback' company.name %}">{{company.name}}</a></td>
+					<td><img class="logo" src="/static/logo/{{company.logo}}"></td>
+					<td>{{company.description}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

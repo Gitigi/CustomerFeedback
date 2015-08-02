@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block form %}
+
+<form class="form-horizontal" role="form" method="POST" >
+	<div class="form-group">
+		<label for="firstname" class="col-sm-2 control-label">First Name</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="firstname" name="first_name" 
+				placeholder="First Name">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="lastname" class="control-label col-md-2">Last Name</label>
+		<div class="col-sm-10">
+			<input type="text" id="lastname" class="form-control" name="last_name" 
+				placeholder="Last Name">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="phone_no" class="control-label col-sm-2">Phone No.</label>
+		<div class="col-sm-10">
+			<input class="form-control" id="phone_no" type="text" name="phone_no" 
+				placeholder="Phone Number">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="feedback" class="control-label col-sm-2">Feedback</label>
+		<div class="col-sm-10">
+			<textarea id="feedback" name="feeback" class="form-control"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<input class="form-control btn btn-primary btn-lg" type="submit" value="Submit" name="Submit">
+	</div>
+	{% csrf_token %}
+</form>
+
+{% endblock %}
