@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% block greeting %}
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<img src="/static/logo/{{company.logo}}" class="img-thumbnail img-responsive" >
+	</div>
+</div>
+{% endblock %}
+
 {% block form %}
 
 <form class="form-horizontal" role="form" method="POST" >
@@ -7,15 +15,15 @@
 		<label for="firstname" class="col-sm-2 control-label">First Name</label>
 		<div class="col-sm-10">
 			<input type="text" class="form-control" id="firstname" name="first_name" 
-				placeholder="First Name">
+				placeholder="First Name" id="firstname">
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="lastname" class="control-label col-md-2">Last Name</label>
+		<label for="lastname" class="col-sm-2 control-label">Last Name</label>
 		<div class="col-sm-10">
-			<input type="text" id="lastname" class="form-control" name="last_name" 
-				placeholder="Last Name">
+			<input type="text" class="form-control" id="lastname" name="last_name" 
+				placeholder="Last Name" id="lastname">
 		</div>
 	</div>
 
@@ -23,19 +31,19 @@
 		<label for="phone_no" class="control-label col-sm-2">Phone No.</label>
 		<div class="col-sm-10">
 			<input class="form-control" id="phone_no" type="text" name="phone_no" 
-				placeholder="Phone Number">
+				placeholder="Phone Number" id="phone_no">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="feedback" class="control-label col-sm-2">Feedback</label>
 		<div class="col-sm-10">
-			<textarea id="feedback" name="feeback" class="form-control"></textarea>
+			<textarea id="feedback" name="feedback" class="form-control" id="feedback"></textarea>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<input class="form-control btn btn-primary btn-lg" type="submit" value="Submit" name="Submit">
+		<input class="form-control btn btn-primary btn-lg" type="submit" value="Submit" name="Submit" id="submit">
 	</div>
 	{% csrf_token %}
 </form>

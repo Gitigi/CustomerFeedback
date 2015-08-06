@@ -3,7 +3,7 @@
 {%block greeting%}
 
 <div class="row">
-	<div class="col-md-8 col-md-offset-2 jumbotron">
+	<div class="col-sm-8 col-sm-offset-2 jumbotron">
 		<div class="text-center" >
 			<h2>Welcome To Customer Feedback</h2>
 			<p>
@@ -32,8 +32,8 @@
 			</thead>
 			<tbody>
 				{% for company in companies %}
-				<tr>
-					<td><a href="{% url 'feedback' company.name %}">{{company.name}}</a></td>
+				<tr onclick=" window.location.href = '{% url 'feedback' company.name %}' " id="{{company.name}}">
+					<td>{{company.name}}</td>
 					<td><img class="logo" src="/static/logo/{{company.logo}}"></td>
 					<td>{{company.description}}</td>
 				</tr>
