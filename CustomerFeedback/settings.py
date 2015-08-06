@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Customer',
+    'Companies',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,7 +51,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 )
-
 ROOT_URLCONF = 'CustomerFeedback.urls'
 
 TEMPLATES = [

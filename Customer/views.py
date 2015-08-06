@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from Customer.models import Company,Feedback
+from Companies.models import Company,Feedback
 
 def home_page(request):
     companies = Company.objects.all()

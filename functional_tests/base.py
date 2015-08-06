@@ -1,6 +1,6 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
-from Customer.models import Company
+from Companies.models import Company
 
 class FunctionalTest(StaticLiveServerTestCase):
 

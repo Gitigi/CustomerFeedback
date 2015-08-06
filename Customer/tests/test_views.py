@@ -1,5 +1,5 @@
 from django.test import TestCase
-from Customer.models import Company,Feedback
+from Companies.models import Company,Feedback
 from unittest.mock import patch,Mock
 from django.db.models.query import QuerySet
 from django.http import HttpRequest
