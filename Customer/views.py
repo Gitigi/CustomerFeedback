@@ -4,7 +4,7 @@ from Companies.models import Company,Feedback
 
 def home_page(request):
     companies = Company.objects.all()
-    return render(request,'home.html',{'companies':companies })
+    return render(request,'home.html',{'companies':companies})
 
 def feedback_page(request,company_name):
     if request.method == 'GET':

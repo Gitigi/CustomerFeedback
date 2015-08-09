@@ -1,9 +1,11 @@
 from django.db import models
+from Employees.models import Employee
 
 class Company(models.Model):
     name = models.CharField(default="",max_length=200)
     logo = models.FileField(null=True,blank=True)
     description = models.TextField(default='',blank=True,null=True)
+    employe = models.ForeignKey(Employee,blank=True,null=True)
 
     def __str__(self):
         return self.name

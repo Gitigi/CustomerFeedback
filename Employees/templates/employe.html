@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block table %}
+<div class="row">
+	<div class = "col-md-8 col-md-offset-2">
+		<table class="table table-hover table-responsive">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Logo</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for company in employe.company_set.all%}
+				<tr onclick=" window.location.href = '{% url 'feedback' company.name %}' " id="{{company.name}}">
+					<td>{{company.name}}</td>
+					<td><img class="logo" src="/static/logo/{{company.logo}}"></td>
+					<td>{{company.description}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

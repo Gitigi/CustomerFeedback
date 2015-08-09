@@ -18,9 +18,6 @@ class CustomerTest(FunctionalTest):
         self.assertIn('Google',self.browser.find_element_by_tag_name('table').text)
         self.assertIn('Cnn',self.browser.find_element_by_tag_name('table').text)
 
-    def input_value_to_form(self,input_id,value):
-        self.browser.find_element_by_id(input_id).send_keys(value)
-
 
     def test_customer_can_select_a_company_and_be_presented_with_a_form(self):
         #once the homepage has loaded the customer sees a company that he wanted

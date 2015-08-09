@@ -11,6 +11,24 @@
 <body>
 
 <div class="container">
+	{% block navigation %}
+	<nav class="navbar navbar-default" rold="navigation">
+		<div class="navbar-header">
+			<a href="{% url 'home_page' %}" class="navbar-brand">Customer Feedback</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav navbar-right" >
+				{% if user.last_name %}
+				<li class="navbar-text">Logged in as {{user.last_name}}</li>
+				<li><a href="{% url 'logout' %}" class="btn">Logout</a></li>
+				{% else %}
+				<li><a href="{% url 'login' %}" class="btn">Login</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
+	{% endblock %}
+
 	{% block greeting %}{% endblock %}
 
 	{% block form %}{% endblock %}

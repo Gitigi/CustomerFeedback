@@ -17,3 +17,6 @@ class FunctionalTest(StaticLiveServerTestCase):
         comp.logo = logo
         comp.description=description
         comp.save()
+
+    def input_value_to_form(self,input_id,value):
+        self.browser.find_element_by_id(input_id).send_keys(value)
