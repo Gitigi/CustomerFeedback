@@ -5,3 +5,4 @@ migrations
 gitigoner
 gitignore
 .gitigoner
+db.sqlite3

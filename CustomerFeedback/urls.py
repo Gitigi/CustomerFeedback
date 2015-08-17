@@ -25,8 +25,7 @@ urlpatterns = [
     url(r'^$','Customer.views.home_page',name='home_page'),
     url(r'^favicon.ico$',RedirectView.as_view(
         url='/static/favicon.ico',permanent=True),name='favicon'),
-    url(r'^feedback/(.+)/$','Customer.views.feedback_page',name='feedback'),
-    url(r'^login$','Employees.views.Employee_login',name='login'),
-    url(r'^logout$','Employees.views.Employee_logout',name='logout'),
-    url(r'^employee/$','Employees.views.Employee_page',name='employee')
+    url('^customer/',include('Customer.urls')),
+    
+    url(r'^employee/',include('Employees.urls'))
 ]

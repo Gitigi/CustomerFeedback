@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block navigation %}
+	<nav class="navbar navbar-default" rold="navigation">
+		<div class="navbar-header">
+			<a href="{% url 'home_page' %}" class="navbar-brand">Customer Feedback</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav navbar-right" >
+				<li class="navbar-text">Logged in as {{user.last_name}}</li>
+				<li><a href="{% url 'logout' %}" class="btn">Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+{% endblock %}
+
+
+{% block greeting %}
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<img src="/static/logo/{{company.logo}}" class="img-thumbnail img-responsive" >
+	</div>
+</div>
+{% endblock %}
+
+{% block feedback %}
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+	<ul class="list-unstyled">
+	{% for feed in company.feedback_set.all %}
+	<li>
+	
+		<div >
+			<h3> {{feed.lastname}} </h3>
+			<p> {{feed.feedback}}</p>
+			<div class="dropdown">
+				<button type="button"  class="btn dropdown-toggle btn-primary" id="dropdowntextarea"
+					data-toggle="dropdown">
+					Reply
+					<span class="glyphicon glyphicon-share-alt"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdowntextarea">
+					<li role="presentation">
+						<form role="form">
+							<div class="form-group">
+								<textarea class="form-control" cols="130" rows="5" name="reply"></textarea>
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Send" name="Reply" class="btn btn-primary" >
+							</div>
+						</form>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</li>
+	{% endfor %}
+	</ul>
+	</div>
+</div>
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User as UserModel
-#UserModel = get_user_model()
+
 
 class Employee(models.Model):
 

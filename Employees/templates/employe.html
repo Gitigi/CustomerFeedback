@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 
+{% block navigation %}
+	<nav class="navbar navbar-default" rold="navigation">
+		<div class="navbar-header">
+			<a href="{% url 'home_page' %}" class="navbar-brand">Customer Feedback</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav navbar-right" >
+				<li class="navbar-text">Logged in as {{user.last_name}}</li>
+				<li><a href="{% url 'logout' %}" class="btn">Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+	{% endblock %}
+
 {% block table %}
 <div class="row">
 	<div class = "col-md-8 col-md-offset-2">
@@ -12,8 +26,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% for company in employe.company_set.all%}
-				<tr onclick=" window.location.href = '{% url 'feedback' company.name %}' " id="{{company.name}}">
+				{% for company in employe.company_set.all %}
+				<tr onclick=" window.location.href = '{% url 'company_feedback' company.name %}' " id="{{company.name}}">
 					<td>{{company.name}}</td>
 					<td><img class="logo" src="/static/logo/{{company.logo}}"></td>
 					<td>{{company.description}}</td>

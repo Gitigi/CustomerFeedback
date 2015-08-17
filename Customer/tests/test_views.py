@@ -20,7 +20,7 @@ class CustomerUnitTest(TestCase):
     def test_user_is_presented_with_a_form_after_selecting_a_comapnay(
         self,mockCustomer):
 
-        response = self.client.get('/feedback/google/')
+        response = self.client.get('/customer/feedback/google/')
         self.assertTemplateUsed(response,'feedback.html')
 
     @patch('Customer.views.Company')
@@ -29,7 +29,7 @@ class CustomerUnitTest(TestCase):
 
         data ={'first_name':'Stephen','last_name':'Gitigi','phone_no':'343434',
                'feedback':'what a wonderful company'}
-        response = self.client.post('/feedback/google/',data)
+        response = self.client.post('/customer/feedback/google/',data)
         self.assertEqual(response.status_code,302)
 
     
@@ -39,10 +39,7 @@ class CustomerUnitTest(TestCase):
         
         data ={'first_name':'Stephen','last_name':'Gitigi','phone_no':'343434',
                'feedback':'what a wonderful company'}
-        request = HttpRequest()
-        request.method = 'POST'
-        request.POST = data
-
+        
         mock_feedback = mockFeedback.return_value
         mock_company = mockCompany.objects.get.return_value
         def check_Customer_id_is_inserted_before_save():
@@ -53,7 +50,8 @@ class CustomerUnitTest(TestCase):
             self.assertEqual('what a wonderful company',mock_feedback.feedback)
 
         mock_feedback.save.side_effect = check_Customer_id_is_inserted_before_save
-        feedback_page(request,'Google')
+        
+        self.client.post('/customer/feedback/Google/',data=data)
         mock_feedback.save.assert_called_once_with()
 
 class CustomerIntegratedTest(TestCase):
@@ -66,9 +64,6 @@ class CustomerIntegratedTest(TestCase):
         
         data ={'first_name':'Stephen','last_name':'Gitigi','phone_no':'343434',
                'feedback':'what a wonderful company'}
-        request = HttpRequest()
-        request.method = 'POST'
-        request.POST = data
-        feedback_page(request,'Google')
+        self.client.post('/customer/feedback/Google/',data = data)
         self.assertEqual(Feedback.objects.all().count(),1)
         

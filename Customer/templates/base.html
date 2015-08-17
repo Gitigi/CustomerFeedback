@@ -18,12 +18,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-right" >
-				{% if user.last_name %}
-				<li class="navbar-text">Logged in as {{user.last_name}}</li>
-				<li><a href="{% url 'logout' %}" class="btn">Logout</a></li>
-				{% else %}
 				<li><a href="{% url 'login' %}" class="btn">Login</a></li>
-				{% endif %}
 			</ul>
 		</div>
 	</nav>
@@ -34,6 +29,8 @@
 	{% block form %}{% endblock %}
 
 	{% block table %}{% endblock %}
+
+	{% block feedback %}{% endblock %}
 
 </div>
 
