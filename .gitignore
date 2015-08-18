@@ -6,3 +6,9 @@ gitigoner
 gitignore
 .gitigoner
 db.sqlite3
+venv
+*.py
+CustomerFeedback/*.pyc
+Companies/*.pyc
+Customer/*.pyc
+Employees/*.pyc

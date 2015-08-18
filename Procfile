@@ -1,0 +1,1 @@
+web: gunicorn CustomerFeedback.wsgi --log-file -
