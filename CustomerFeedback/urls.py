@@ -17,12 +17,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from django.views.generic.base import RedirectView
+from Customer import views as CustomerViews
 
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$','Customer.views.home_page',name='home_page'),
+    url(r'^$',CustomerViews.home_page,name='home_page'),
     url(r'^favicon.ico$',RedirectView.as_view(
         url='/static/favicon.ico',permanent=True),name='favicon'),
     url('^customer/',include('Customer.urls')),
